@@ -1,22 +1,38 @@
-Role Name
+PHP7.0 role
 =========
 
-A brief description of the role goes here.
+Help u easily build php7.0 on Ubuntu.
 
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
-Dependencies
-------------
+---
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+ pkg_item: 
+ 
+所需要安装版本的php和扩展
+   - php7.0
+   - php-pear
+   - php7.0-dev
+  
+  安装php-pear和php7.0-dev,解锁使用pecl，安装扩展更方便。
+   - php7.0-mbstring
+   - php7.0-zip
+   - php7.0-mysql
+  
+  日常所需要的扩展，可以在vars/main.yml中自定义添加
+  
+  配置文件路径：
+  
+ php_ini: /etc/ansible/roles/php/templates/php.ini.j2
+ 
+ 修改站点根目录index.php文件,查看phpinfo，安装成功.
+ 
+ 
+ php_index: /etc/ansible/roles/php/templates/index.php.j2`
+`
 
 Example Playbook
 ----------------
@@ -25,14 +41,11 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: username.rolename}
 
 License
 -------
 
 BSD
 
-Author Information
-------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
