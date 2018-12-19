@@ -1,0 +1,9 @@
+---
+ - name: install php packages
+   apt: name={{ pkg_item }} state=present
+ - name: change the index.php to show the phpinfo
+   template: src={{ php_index }} dest=/var/www/html/index.php
+ - name: change the default php.ini(enable the opcache)
+   template: src={{ php_ini }} dest=/etc/php/7.0/fpm/php.ini
+   notify:
+    - restart php-fpm

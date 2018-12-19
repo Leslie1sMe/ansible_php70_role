@@ -1,0 +1,11 @@
+---
+# vars file for php
+ pkg_item:
+   - php7.0
+   - php-pear
+   - php7.0-dev
+   - php7.0-mbstring
+   - php7.0-zip
+   - php7.0-mysql
+ php_ini: /etc/ansible/roles/php/templates/php.ini.j2
+ php_index: /etc/ansible/roles/php/templates/index.php.j2

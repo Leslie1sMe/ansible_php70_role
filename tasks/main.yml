@@ -1,0 +1,4 @@
+---
+# tasks file for php
+ - include_tasks: php_for_ubuntu.yml
+   when: ansible_distribution == "Ubuntu"
